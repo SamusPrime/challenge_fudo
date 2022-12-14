@@ -1,1 +1,30 @@
-abstract class ConstantsDimension {}
+abstract class ConstantsDimension {
+  static const double loginScreenLogoWidth = 50.0;
+  static const double loginScreenLogoHeight = 50.0;
+  static const double loginScreenTitleShadowOffset = 1.0;
+  static const double loginScreenTitleShadowBlurRadius = 0.5;
+  static const double loginScreenTitleFontSize = 50.0;
+  static const double loginScreenTitlePaddingLeft = 70.5;
+  static const double loginScreenTitlePaddingRight = 120.5;
+  static const double loginScreenTitlePaddingTop = 100.0;
+  static const double loginScreenTitlePaddingBottom = 100.0;
+  static const double loginScreenSliverPaddingDefault = 50.0;
+  static const double loginScreenSliverPaddingBottom = 50.0;
+  static const double loginScreenTextFieldWidth = 200.0;
+  static const double loginScreenTextFieldHeight = 60.0;
+  static const double loginScreenTextFieldShadowBlurRadius = 8.0;
+  static const double loginScreenTextFieldBorderWidth = 2.0;
+  static const double loginScreenTextFieldBorderRadius = 1.0;
+  static const double loginScreenTextFieldPaddingLeft = 8.0;
+  static const double loginScreenLoginButtonPaddingLeft = 120.0;
+  static const double loginScreenLoginButtonPaddingRight = 120.0;
+  static const double loginScreenLoginButtonPaddingTop = 10.0;
+  static const double loginScreenLoginButtonPaddingBottom = 10.0;
+  static const double loginButtonSizedBoxWidth = 150.0;
+  static const double loginButtonSizedBoxHeight = 50.0;
+  static const double loginButtonSizedBoxShadowBlur = 4.0;
+  static const double loginButtonSizedBoxBorderWidth = 2.0;
+  static const double loginButtonSizedBoxBorderRadius = 1.0;
+  static const double loginButtonSizedBoxTextFontSize = 25.0;
+  static const double toastBarTextFontSize = 30.0;
+}
