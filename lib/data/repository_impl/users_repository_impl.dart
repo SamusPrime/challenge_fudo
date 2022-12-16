@@ -1,27 +1,24 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../../domain/repository/database_response.dart';
 import '../../domain/repository/i_users_repository.dart';
-import '../datasource/local/DAOs/database.dart';
+import '../datasource/local/DAOs/database_users.dart';
 import '../datasource/remote/api_service.dart';
-import '../model/user_model.dart';
+import '../model/user_impl.dart';
 
-class UsersRepository with DatabaseResponse implements IUsersRepository {
+class UsersRepository extends DatabaseUsers implements IUsersRepository {
   final ApiService _service;
-  final Database _db;
+  final DatabaseUsers _dbUsers;
 
   UsersRepository(
     this._service,
-    this._db,
+    this._dbUsers,
   );
 
   @override
-  Database get database => _db;
-
-  @override
-  Future<List<UserModel>> fetchUsers(endpoint) async {
-    List<UserModel> usersList = [];
+  Future<List<UserImpl>> fetchUsers(endpoint) async {
+    List<UserImpl> usersList = [];
 
     int startIndex = endpoint.lastIndexOf('/');
     String document = endpoint.substring(startIndex + 1) + '_doc';
@@ -36,9 +33,9 @@ class UsersRepository with DatabaseResponse implements IUsersRepository {
           return usersList;
         } else {
           users.forEach((user) {
-            usersList.add(UserModel.fromJson(user));
+            usersList.add(UserImpl.fromJson(user));
           });
-   /*            _db.addUsers(
+          /*            _dbUsers.addUsers(
             users: users,
             mainCollectionDocument: document,
             subCollection: subCollection,
@@ -56,5 +53,18 @@ class UsersRepository with DatabaseResponse implements IUsersRepository {
         subCollection: subCollection,
       );
     }
+  }
+
+  Future<List<UserImpl>> modelResponse(
+    List<QueryDocumentSnapshot> response,
+  ) async {
+    List<UserImpl> usersList = [];
+    List<QueryDocumentSnapshot> users = response;
+    users.forEach((post) {
+      usersList.add(
+        UserImpl.fromJson(post),
+      );
+    });
+    return usersList;
   }
 }

@@ -11,22 +11,21 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController userController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ConstantsPalette.loginScreenBackground,
+        backgroundColor: Palette.loginScreenBackground,
         body: CustomScrollView(
           slivers: [
             SliverPadding(
               padding: const EdgeInsets.only(
-                left: ConstantsDimension.loginScreenTitlePaddingLeft,
-                right: ConstantsDimension.loginScreenTitlePaddingRight,
-                bottom: ConstantsDimension.loginScreenTitlePaddingBottom,
-                top: ConstantsDimension.loginScreenTitlePaddingTop,
+                left: Dimensions.loginScreenTitlePaddingLeft,
+                right: Dimensions.loginScreenTitlePaddingRight,
+                bottom: Dimensions.loginScreenTitlePaddingBottom,
+                top: Dimensions.loginScreenTitlePaddingTop,
               ),
               sliver: SliverToBoxAdapter(
                 child: SizedBox(
@@ -35,33 +34,33 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       SizedBox(
                         child: Image.asset(
-                          ConstantsAsset.fudoLogo0,
-                          width: ConstantsDimension.loginScreenLogoWidth,
-                          height: ConstantsDimension.loginScreenLogoHeight,
+                          Assets.fudoLogo0,
+                          width: Dimensions.loginScreenLogoWidth,
+                          height: Dimensions.loginScreenLogoHeight,
                         ),
                       ),
                       const Spacer(),
                       const SizedBox(
                         child: Text(
-                          ConstantsString.loginScreenTitle,
+                          Strings.loginScreenTitle,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             shadows: <Shadow>[
                               Shadow(
                                 offset: Offset(
-                                  ConstantsDimension
+                                  Dimensions
                                       .loginScreenTitleShadowOffset,
-                                  ConstantsDimension
+                                  Dimensions
                                       .loginScreenTitleShadowOffset,
                                 ),
-                                blurRadius: ConstantsDimension
+                                blurRadius: Dimensions
                                     .loginScreenTitleShadowBlurRadius,
-                                color: ConstantsPalette.loginScreenTitleShadow,
+                                color: Palette.loginScreenTitleShadow,
                               ),
                             ],
                             fontWeight: FontWeight.w600,
                             fontSize:
-                                ConstantsDimension.loginScreenTitleFontSize,
+                                Dimensions.loginScreenTitleFontSize,
                           ),
                         ),
                       ),
@@ -72,42 +71,42 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SliverPadding(
               padding: const EdgeInsets.only(
-                left: ConstantsDimension.loginScreenSliverPaddingDefault,
-                right: ConstantsDimension.loginScreenSliverPaddingDefault,
-                bottom: ConstantsDimension.loginScreenSliverPaddingBottom,
-                top: ConstantsDimension.loginScreenSliverPaddingDefault,
+                left: Dimensions.loginScreenSliverPaddingDefault,
+                right: Dimensions.loginScreenSliverPaddingDefault,
+                bottom: Dimensions.loginScreenSliverPaddingBottom,
+                top: Dimensions.loginScreenSliverPaddingDefault,
               ),
               sliver: SliverToBoxAdapter(
                 child: SizedBox(
-                  width: ConstantsDimension.loginScreenTextFieldWidth,
-                  height: ConstantsDimension.loginScreenTextFieldHeight,
+                  width: Dimensions.loginScreenTextFieldWidth,
+                  height: Dimensions.loginScreenTextFieldHeight,
                   child: Container(
                     decoration: BoxDecoration(
                       boxShadow: const [
                         BoxShadow(
-                          color: ConstantsPalette.loginScreenTextFieldBoxShadow,
-                          blurRadius: ConstantsDimension
+                          color: Palette.loginScreenTextFieldBoxShadow,
+                          blurRadius: Dimensions
                               .loginScreenTextFieldShadowBlurRadius,
                         ),
                       ],
-                      color: ConstantsPalette.loginScreenTextFieldContainer,
+                      color: Palette.loginScreenTextFieldContainer,
                       border: Border.all(
                         width:
-                            ConstantsDimension.loginScreenTextFieldBorderWidth,
+                            Dimensions.loginScreenTextFieldBorderWidth,
                       ),
                       borderRadius: const BorderRadius.all(
                         Radius.circular(
-                          ConstantsDimension.loginScreenTextFieldBorderRadius,
+                          Dimensions.loginScreenTextFieldBorderRadius,
                         ),
                       ),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(
                         left:
-                            ConstantsDimension.loginScreenTextFieldPaddingLeft,
+                            Dimensions.loginScreenTextFieldPaddingLeft,
                       ),
                       child: LoginTextField(
-                        hintText: ConstantsString.loginScreenHintUser,
+                        hintText: Strings.loginScreenHintUser,
                         obscureText: false,
                         textController: userController,
                       ),
@@ -118,42 +117,42 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SliverPadding(
               padding: const EdgeInsets.only(
-                left: ConstantsDimension.loginScreenSliverPaddingDefault,
-                bottom: ConstantsDimension.loginScreenSliverPaddingDefault,
-                right: ConstantsDimension.loginScreenSliverPaddingDefault,
+                left: Dimensions.loginScreenSliverPaddingDefault,
+                bottom: Dimensions.loginScreenSliverPaddingDefault,
+                right: Dimensions.loginScreenSliverPaddingDefault,
               ),
               sliver: SliverToBoxAdapter(
                 child: SizedBox(
-                  width: ConstantsDimension.loginScreenTextFieldWidth,
-                  height: ConstantsDimension.loginScreenTextFieldHeight,
+                  width: Dimensions.loginScreenTextFieldWidth,
+                  height: Dimensions.loginScreenTextFieldHeight,
                   child: Container(
                     decoration: BoxDecoration(
                       boxShadow: const [
                         BoxShadow(
-                          color: ConstantsPalette.loginScreenTextFieldBoxShadow,
-                          blurRadius: ConstantsDimension
+                          color: Palette.loginScreenTextFieldBoxShadow,
+                          blurRadius: Dimensions
                               .loginScreenTextFieldShadowBlurRadius,
                         ),
                       ],
-                      color: ConstantsPalette.loginScreenTextFieldContainer,
+                      color: Palette.loginScreenTextFieldContainer,
                       border: Border.all(
                         width:
-                            ConstantsDimension.loginScreenTextFieldBorderWidth,
+                            Dimensions.loginScreenTextFieldBorderWidth,
                       ),
                       borderRadius: const BorderRadius.all(
                         Radius.circular(
-                          ConstantsDimension.loginScreenTextFieldBorderRadius,
+                          Dimensions.loginScreenTextFieldBorderRadius,
                         ),
                       ),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(
                         left:
-                            ConstantsDimension.loginScreenTextFieldPaddingLeft,
+                            Dimensions.loginScreenTextFieldPaddingLeft,
                       ),
                       child: LoginTextField(
                         textController: passwordController,
-                        hintText: ConstantsString.loginScreenHintPassword,
+                        hintText: Strings.loginScreenHintPassword,
                         obscureText: true,
                       ),
                     ),
@@ -163,10 +162,10 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SliverPadding(
               padding: const EdgeInsets.only(
-                left: ConstantsDimension.loginScreenLoginButtonPaddingLeft,
-                right: ConstantsDimension.loginScreenLoginButtonPaddingRight,
-                top: ConstantsDimension.loginScreenLoginButtonPaddingTop,
-                bottom: ConstantsDimension.loginScreenLoginButtonPaddingBottom,
+                left: Dimensions.loginScreenLoginButtonPaddingLeft,
+                right: Dimensions.loginScreenLoginButtonPaddingRight,
+                top: Dimensions.loginScreenLoginButtonPaddingTop,
+                bottom: Dimensions.loginScreenLoginButtonPaddingBottom,
               ),
               sliver: SliverToBoxAdapter(
                 child: LoginButton(
@@ -178,7 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SliverToBoxAdapter(
               child: Center(
                 child: Text(
-                  ConstantsString.loginScreenRegister,
+                  Strings.loginScreenRegister,
                 ),
               ),
             ),

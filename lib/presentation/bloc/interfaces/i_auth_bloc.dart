@@ -10,8 +10,8 @@ abstract class IAuthBloc implements Bloc {
   void dispose();
 
   String validateInputs(
-    TextEditingController userInputController,
-    TextEditingController passwordInputController,
+    String userInput,
+    String passwordInput,
   );
 
   bool getStatusAuth();

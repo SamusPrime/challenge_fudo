@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/util/constants.dart';
+
 class LoginTextField extends StatelessWidget {
   final TextEditingController textController;
   final String hintText;
@@ -24,7 +26,7 @@ class LoginTextField extends StatelessWidget {
           hintText: hintText,
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.grey,
+              color: Palette.loginTextFieldBorderSide,
             ),
           ),
         ),

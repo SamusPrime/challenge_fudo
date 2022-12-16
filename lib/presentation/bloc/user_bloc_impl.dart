@@ -1,5 +1,5 @@
 import '../../core/usecases/i_usecase.dart';
-import '../../data/model/user_model.dart';
+import '../../data/model/user_impl.dart';
 
 import 'interfaces/i_users_bloc.dart';
 
@@ -14,7 +14,7 @@ class UserBlocImpl implements IUsersBloc {
   }
 
   @override
-  Future<List<UserModel>> getUsers(endpoint) async {
+  Future<List<UserImpl>> getUsers(endpoint) async {
     return await _getUsersUseCase(params: endpoint);
   }
 

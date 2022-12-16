@@ -1,18 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'presentation/bloc/user_bloc_impl.dart';
-import 'data/repository_impl/users_repository_impl.dart';
-import 'domain/usecase/get_users_usecase.dart';
+import 'core/bootstrapper.dart';
+import 'presentation/bloc/interfaces/i_posts_bloc.dart';
 import 'presentation/bloc/interfaces/i_users_bloc.dart';
-import 'core/usecases/i_usecase.dart';
-import 'data/datasource/local/DAOs/database.dart';
-import 'data/datasource/remote/api_service.dart';
-import 'domain/repository/i_users_repository.dart';
-import 'package:http/http.dart' as http;
-import 'presentation/bloc/auth_bloc_impl.dart';
 import 'core/util/constants.dart';
 import 'presentation/bloc/interfaces/i_auth_bloc.dart';
-import 'presentation/view/screen.dart';
+import 'presentation/view/login_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -29,35 +22,18 @@ class FudoChallenge extends StatefulWidget {
 }
 
 class _FudoChallengeState extends State<FudoChallenge> {
-  late AuthBloc _authBloc;
-  late Database _db;
-  late http.Client _client;
-  late ApiService _service;
-  late IUsersRepository _usersRepository;
-  late UseCase _getUsersUseCase;
-  late IUsersBloc _usersBloc;
+  final boot = Bootstrapper();
 
   @override
   void initState() {
-    _authBloc = AuthBloc();
-    _client = http.Client();
-    _db = Database();
-    _service = ApiService(client: _client);
-    _usersRepository = UsersRepository(
-      _service,
-      _db,
-    );
-    _getUsersUseCase = GetUsersUseCase(_usersRepository);
-    _usersBloc = UserBlocImpl(
-      _getUsersUseCase,
-    );
+    boot.initialize();
     super.initState();
   }
 
   @override
   void dispose() {
-    _authBloc.dispose();
-    _usersBloc.dispose();
+
+    boot.dispose();
     super.dispose();
   }
 
@@ -65,15 +41,16 @@ class _FudoChallengeState extends State<FudoChallenge> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<IAuthBloc>.value(value: _authBloc),
-        Provider<IUsersBloc>.value(value: _usersBloc),
+        Provider<IAuthBloc>.value(value: boot.authBloc),
+        Provider<IUsersBloc>.value(value: boot.usersBloc),
+        Provider<IPostsBloc>.value(value: boot.postsBloc),
       ],
       child: MaterialApp(
-        title: ConstantsString.mainAppTitle,
+        title: Strings.mainAppTitle,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          scaffoldBackgroundColor: ConstantsPalette.mainScaffoldBackground,
+          scaffoldBackgroundColor: Palette.mainScaffoldBackground,
         ),
         home: const LoginScreen(),
       ),

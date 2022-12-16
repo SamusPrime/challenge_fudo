@@ -1,5 +1,5 @@
 import '../../../core/bloc_i/i_bloc.dart';
-import '../../../data/model/user_model.dart';
+import '../../../data/model/user_impl.dart';
 
 abstract class IUsersBloc implements Bloc {
   @override
@@ -8,5 +8,5 @@ abstract class IUsersBloc implements Bloc {
   @override
   void dispose();
 
-  Future<List<UserModel>> getUsers(endpoint);
+  Future<List<UserImpl>> getUsers(endpoint);
 }

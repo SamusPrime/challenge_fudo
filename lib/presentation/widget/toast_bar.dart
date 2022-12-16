@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/util/constants_dimension.dart';
+import '../../core/util/dimensions.dart';
 
 class ToastBar extends StatelessWidget {
   final String detailMessage;
@@ -17,7 +17,7 @@ class ToastBar extends StatelessWidget {
       textAlign: TextAlign.center,
       style: const TextStyle(
         fontWeight: FontWeight.bold,
-        fontSize: ConstantsDimension.toastBarTextFontSize,
+        fontSize: Dimensions.toastBarTextFontSize,
       ),
     );
   }

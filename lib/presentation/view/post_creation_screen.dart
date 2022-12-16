@@ -10,6 +10,17 @@ class PostCreationScreen extends StatefulWidget {
 class _PostCreationScreenState extends State<PostCreationScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          color: Colors.green,
+          child: Center(
+            child: Text(
+              'this is post creation',
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
