@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import '../../core/util/constants_palette.dart';
+import 'package:provider/provider.dart';
+import '../../config/route/nav_router.dart';
 import '../../presentation/widget/widgets.dart';
-import '../../core/util/constants_dimension.dart';
-import '../../core/util/constants_string.dart';
+import '../../core/util/constants.dart';
+import '../bloc/auth_bloc_impl.dart';
+import '../bloc/interfaces/i_auth_bloc.dart';
 import '../view/screen.dart';
 
 class LoginButton extends StatefulWidget {
   final TextEditingController userInputController;
   final TextEditingController passwordInputController;
+  final AuthBloc authBloc = AuthBloc();
 
-  const LoginButton({
+  LoginButton({
     Key? key,
     required this.userInputController,
     required this.passwordInputController,
@@ -20,13 +23,56 @@ class LoginButton extends StatefulWidget {
 }
 
 class _LoginButtonState extends State<LoginButton> {
+  late String validationResponse;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _validateInputs(
-        widget.userInputController,
-        widget.passwordInputController,
-      ),
+      onTap: () {
+        validationResponse =
+            Provider.of<IAuthBloc>(context, listen: false).validateInputs(
+          widget.userInputController,
+          widget.passwordInputController,
+        );
+        switch (validationResponse) {
+          case ConstantsString.loginButtonSuccessMessage:
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: ToastBar(
+                  detailMessage:
+                      ConstantsString.loginButtonSnackBarLoggedMessage,
+                ),
+              ),
+            );
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NavRouter(),
+              ),
+            );
+            break;
+          case ConstantsString.loginButtonIncorrectUserMessage:
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: ToastBar(
+                  detailMessage:
+                      ConstantsString.loginButtonSnackBarIncorrectUserName,
+                ),
+              ),
+            );
+            break;
+          case ConstantsString.loginButtonSnackBarIncorrectPassword:
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: ToastBar(
+                  detailMessage:
+                      ConstantsString.loginButtonSnackBarIncorrectPassword,
+                ),
+              ),
+            );
+            break;
+        }
+      },
       child: SizedBox(
         width: ConstantsDimension.loginButtonSizedBoxWidth,
         height: ConstantsDimension.loginButtonSizedBoxHeight,
@@ -58,58 +104,6 @@ class _LoginButtonState extends State<LoginButton> {
           ),
         ),
       ),
-    );
-  }
-
-  _validateInputs(
-    TextEditingController userInputController,
-    TextEditingController passwordInputController,
-  ) {
-    String userInput;
-    String passwordInput;
-    bool isAuthenticated = false;
-    setState(
-      () {
-        userInput = userInputController.text;
-        passwordInput = passwordInputController.text;
-
-        if (userInput == ConstantsString.loginButtonCorrectUser &&
-            passwordInput == ConstantsString.loginButtonCorrectPassword) {
-          isAuthenticated = true;
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: ToastBar(
-                detailMessage: ConstantsString.loginButtonSnackBarLoggedMessage,
-              ),
-            ),
-          );
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const UsersScreen(),
-            ),
-          );
-        } else if (userInput != ConstantsString.loginButtonCorrectUser) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: ToastBar(
-                detailMessage:
-                    ConstantsString.loginButtonSnackBarIncorrectUserName,
-              ),
-            ),
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: ToastBar(
-                detailMessage:
-                    ConstantsString.loginButtonSnackBarIncorrectPassword,
-              ),
-            ),
-          );
-        }
-      },
     );
   }
 }

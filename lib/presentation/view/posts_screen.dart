@@ -5,6 +5,11 @@ class PostsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(
+      child: Text(
+        'posts screen',
+        style: TextStyle(color: Colors.red),
+      ),
+    );
   }
 }

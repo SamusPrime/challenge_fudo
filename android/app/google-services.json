@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "525382161057",
+    "project_id": "challengefudo",
+    "storage_bucket": "challengefudo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525382161057:android:cb5ff9fdea62b01702d6e0",
+        "android_client_info": {
+          "package_name": "com.example.fudo_challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525382161057-v4oov5kk12vshdm94qs0rotptqr225en.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNu3m7co7_AhYm9L8BFEkuKX9tfBcfTws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525382161057-v4oov5kk12vshdm94qs0rotptqr225en.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
