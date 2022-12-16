@@ -27,4 +27,26 @@ abstract class ConstantsDimension {
   static const double loginButtonSizedBoxBorderRadius = 1.0;
   static const double loginButtonSizedBoxTextFontSize = 25.0;
   static const double toastBarTextFontSize = 30.0;
+  static const double userScreenScrollOffsetScreenStartValue = 0.0;
+  static const double userScreenScrollOffsetDivideValue = 350.0;
+  static const double userScreenScrollOffsetClampStart = 0.0;
+  static const double userScreenScrollOffsetClampEnd = 1.0;
+  static const double userScreenAppBarSizeHeight = 60.0;
+  static const double userAppBarVerticalPadding = 10.0;
+  static const double userAppBarHorizontalPadding = 20.0;
+  static const double userAppBarLogoBorderWidth = 2.0;
+  static const double userAppBarLogoBorderRadius = 1.0;
+  static const double usersAppBarTitleTextFontSize = 25.0;
+  static const double usersBottomNavBarBorderWidth = 3.0;
+  static const double usersAppBarBorderWidth = 3.0;
+  static const double usersListViewBorderWidth = 3.0;
+  static const double usersScreenSliverListContainerBoxConstraintsMinHeight =
+      50.0;
+  static const double responsiveDesktopWidth = 1200.0;
+  static const double responsiveMobileWidth = 800.0;
+  static const double usersListViewPadding = 50.0;
+  static const double visibilityTextPadding = 5.0;
+  static const double visibilityTextFontSize = 20.0;
+  static const double visibilityTextBoxConstraintsMaxWidth = 20.0;
+
 }

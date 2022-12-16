@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../core/util/asset.dart';
-import '../../core/util/constants_dimension.dart';
-import '../../core/util/constants_palette.dart';
-import '../../core/util/constants_string.dart';
+import '../../core/util/constants.dart';
 import '../widget/widgets.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -38,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       SizedBox(
                         child: Image.asset(
-                          Asset.fudoLogo0,
+                          ConstantsAsset.fudoLogo0,
                           width: ConstantsDimension.loginScreenLogoWidth,
                           height: ConstantsDimension.loginScreenLogoHeight,
                         ),
