@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../config/route/nav_router.dart';
+
 import '../../core/util/constants.dart';
-import '../widget/toast_bar.dart';
+
 import 'interfaces/i_auth_bloc.dart';
 
 class AuthBloc implements IAuthBloc {
@@ -18,19 +18,17 @@ class AuthBloc implements IAuthBloc {
 
   @override
   String validateInputs(
-    TextEditingController userInputController,
-    TextEditingController passwordInputController,
+    String userInput,
+    String passwordInput,
   ) {
-    if (userInputController.text == ConstantsString.loginButtonCorrectUser &&
-        passwordInputController.text ==
-            ConstantsString.loginButtonCorrectPassword) {
+    if (userInput == Strings.loginButtonCorrectUser &&
+        passwordInput == Strings.loginButtonCorrectPassword) {
       isAuthenticated = true;
-      return ConstantsString.loginButtonSuccessMessage;
-    } else if (userInputController.text !=
-        ConstantsString.loginButtonCorrectUser) {
-      return ConstantsString.loginButtonIncorrectUserMessage;
+      return Strings.loginButtonSuccessMessage;
+    } else if (userInput != Strings.loginButtonCorrectUser) {
+      return Strings.loginButtonIncorrectUserMessage;
     } else {
-      return ConstantsString.loginButtonIncorrectPasswordMessage;
+      return Strings.loginButtonIncorrectPasswordMessage;
     }
   }
 }

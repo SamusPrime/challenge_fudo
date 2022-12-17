@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../config/route/nav_router.dart';
+import 'bottom_navigation_bar.dart';
 import '../../presentation/widget/widgets.dart';
 import '../../core/util/constants.dart';
 import '../bloc/auth_bloc_impl.dart';
 import '../bloc/interfaces/i_auth_bloc.dart';
-import '../view/screen.dart';
 
 class LoginButton extends StatefulWidget {
   final TextEditingController userInputController;
@@ -31,42 +30,42 @@ class _LoginButtonState extends State<LoginButton> {
       onTap: () {
         validationResponse =
             Provider.of<IAuthBloc>(context, listen: false).validateInputs(
-          widget.userInputController,
-          widget.passwordInputController,
+          widget.userInputController.text,
+          widget.passwordInputController.text,
         );
         switch (validationResponse) {
-          case ConstantsString.loginButtonSuccessMessage:
+          case Strings.loginButtonSuccessMessage:
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: ToastBar(
                   detailMessage:
-                      ConstantsString.loginButtonSnackBarLoggedMessage,
+                      Strings.loginButtonSnackBarLoggedMessage,
                 ),
               ),
             );
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const NavRouter(),
+                builder: (context) => const CustomBottomNavigationBar(),
               ),
             );
             break;
-          case ConstantsString.loginButtonIncorrectUserMessage:
+          case Strings.loginButtonIncorrectUserMessage:
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: ToastBar(
                   detailMessage:
-                      ConstantsString.loginButtonSnackBarIncorrectUserName,
+                      Strings.loginButtonSnackBarIncorrectUserName,
                 ),
               ),
             );
             break;
-          case ConstantsString.loginButtonSnackBarIncorrectPassword:
+          case Strings.loginButtonSnackBarIncorrectPassword:
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: ToastBar(
                   detailMessage:
-                      ConstantsString.loginButtonSnackBarIncorrectPassword,
+                      Strings.loginButtonSnackBarIncorrectPassword,
                 ),
               ),
             );
@@ -74,31 +73,31 @@ class _LoginButtonState extends State<LoginButton> {
         }
       },
       child: SizedBox(
-        width: ConstantsDimension.loginButtonSizedBoxWidth,
-        height: ConstantsDimension.loginButtonSizedBoxHeight,
+        width: Dimensions.loginButtonSizedBoxWidth,
+        height: Dimensions.loginButtonSizedBoxHeight,
         child: Container(
           decoration: BoxDecoration(
             boxShadow: const [
               BoxShadow(
-                color: ConstantsPalette.loginButtonBoxShadow,
-                blurRadius: ConstantsDimension.loginButtonSizedBoxShadowBlur,
+                color: Palette.loginButtonBoxShadow,
+                blurRadius: Dimensions.loginButtonSizedBoxShadowBlur,
               ),
             ],
-            color: ConstantsPalette.loginButtonContainer,
+            color: Palette.loginButtonContainer,
             border: Border.all(
-              width: ConstantsDimension.loginButtonSizedBoxBorderWidth,
+              width: Dimensions.loginButtonSizedBoxBorderWidth,
             ),
             borderRadius: const BorderRadius.all(
               Radius.circular(
-                ConstantsDimension.loginButtonSizedBoxBorderRadius,
+                Dimensions.loginButtonSizedBoxBorderRadius,
               ),
             ),
           ),
           child: const Center(
             child: Text(
-              ConstantsString.loginButtonText,
+              Strings.loginButtonText,
               style: TextStyle(
-                fontSize: ConstantsDimension.loginButtonSizedBoxTextFontSize,
+                fontSize: Dimensions.loginButtonSizedBoxTextFontSize,
               ),
             ),
           ),

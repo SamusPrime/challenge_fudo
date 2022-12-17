@@ -1,5 +1,5 @@
-import '../../data/model/user_model.dart';
+import '../../data/model/user_impl.dart';
 
 abstract class IUsersRepository {
-  Future<List<UserModel>> fetchUsers(endpoint);
+  Future<List<UserImpl>> fetchUsers(endpoint);
 }
