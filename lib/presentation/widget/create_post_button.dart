@@ -8,7 +8,7 @@ class CreatePostButton extends StatefulWidget {
   final TextEditingController titleInputController;
   final TextEditingController bodyInputController;
 
-  CreatePostButton({
+  const CreatePostButton({
     Key? key,
     required this.titleInputController,
     required this.bodyInputController,
@@ -48,10 +48,10 @@ class _CreatePostButtonState extends State<CreatePostButton> {
               Strings.createPostButtonJsonUserId: Services.postCreationUserId,
             },
           );
-
+          // ignore: use_build_context_synchronously
           Navigator.pop(context);
         },
-        child: ButtonCustomStyle(
+        child: const ButtonCustomStyle(
           buttonText: Strings.createPostButtonText,
         ),
       ),

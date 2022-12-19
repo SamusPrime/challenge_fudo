@@ -4,6 +4,7 @@ import '../../../core/util/constants.dart';
 import '../../data/model/post_impl.dart';
 import '../bloc/interfaces/i_posts_bloc.dart';
 import '../widget/list_view_container.dart';
+import '../widget/text_shadow_style.dart';
 import '../widget/widgets.dart';
 import 'post_creation_screen.dart';
 
@@ -35,7 +36,7 @@ class _PostsScreenState extends State<PostsScreen> {
             screenSize.width,
             Dimensions.customAppBarBarSizeHeight,
           ),
-          child: CustomAppBar(
+          child: const CustomAppBar(
             titleText: Strings.customAppBarPostsTitleText,
           ),
         ),
@@ -98,8 +99,10 @@ class _PostsScreenState extends State<PostsScreen> {
         ),
         floatingActionButton: FloatingActionButton.extended(
           backgroundColor: Palette.postsScreenFloatingActionButtonBackground,
-          label: Text(
-            Strings.postScreenNewPostText,
+          label: const TextShadowStyle(
+            text: Strings.postScreenNewPostText,
+            shadowColor: Palette.postScreenNewPostTextShadow,
+            fontSize: Dimensions.postScreenNewPostFontSize,
           ),
           icon: const Icon(
             Icons.post_add_outlined,
@@ -108,7 +111,7 @@ class _PostsScreenState extends State<PostsScreen> {
           onPressed: () => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PostCreationScreen(),
+              builder: (context) => const PostCreationScreen(),
             ),
           ),
         ),

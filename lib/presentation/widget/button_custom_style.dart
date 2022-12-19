@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import '../../core/util/constants.dart';
 
 class ButtonCustomStyle extends StatelessWidget {
-  const ButtonCustomStyle({Key? key, required this.buttonText})
-      : super(key: key);
+  const ButtonCustomStyle({
+    Key? key,
+    required this.buttonText,
+  }) : super(key: key);
   final String buttonText;
 
   @override
@@ -33,7 +35,7 @@ class ButtonCustomStyle extends StatelessWidget {
         child: Center(
           child: Text(
             buttonText,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: Dimensions.loginButtonSizedBoxTextFontSize,
             ),
           ),

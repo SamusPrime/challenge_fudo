@@ -70,7 +70,7 @@ class _LoginButtonState extends State<LoginButton> {
             break;
         }
       },
-      child: ButtonCustomStyle(
+      child: const ButtonCustomStyle(
         buttonText: Strings.loginButtonText,
       ),
     );

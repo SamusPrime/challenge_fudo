@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../core/util/constants.dart';
+import '../widget/text_shadow_style.dart';
 import '../widget/widgets.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -39,24 +41,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: Dimensions.loginScreenLogoHeight,
                         ),
                       ),
-                      const Spacer(),
-                      const SizedBox(
-                        child: Text(
-                          Strings.loginScreenTitle,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            shadows: <Shadow>[
-                              Shadow(
-                                offset: Offset(
-                                  Dimensions.loginScreenTitleShadowOffset,
-                                  Dimensions.loginScreenTitleShadowOffset,
-                                ),
-                                blurRadius:
-                                    Dimensions.loginScreenTitleShadowBlurRadius,
-                                color: Palette.loginScreenTitleShadow,
-                              ),
-                            ],
-                            fontWeight: FontWeight.w600,
+                    const  Center(
+                        child:   SizedBox(
+                          child: TextShadowStyle(
+                            text: Strings.loginScreenTitle,
+                            shadowColor: Palette.loginScreenTitleShadow,
                             fontSize: Dimensions.loginScreenTitleFontSize,
                           ),
                         ),
@@ -113,10 +102,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Center(
-                child: Text(
-                  Strings.loginScreenRegister,
+                child: InkWell(
+                  onTap: () => launchUrl(
+                    Strings.loginScreenRegisterLink,
+                  ),
+                  child: const Text(
+                    Strings.loginScreenRegister,
+                    style: TextStyle(
+                      color: Palette.loginScreenRegisterText,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
                 ),
               ),
             ),

@@ -27,7 +27,7 @@ class _PostCreationScreenState extends State<PostCreationScreen> {
             screenSize.width,
             Dimensions.customAppBarBarSizeHeight,
           ),
-          child: CustomAppBar(
+          child: const CustomAppBar(
             titleText: Strings.customAppBarPostsCreationTitleText,
           ),
         ),

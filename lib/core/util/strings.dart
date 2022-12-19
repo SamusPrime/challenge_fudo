@@ -7,6 +7,8 @@ abstract class Strings {
   static const String createPostButtonText = 'Create Post';
   static const String loginScreenRegister =
       'No tienes usuario? Regístrate aquí en https://fu.do/es-ar/';
+
+  static   Uri loginScreenRegisterLink = Uri.parse('https://fu.do/es-ar/');
   static const String loginButtonCorrectUser = 'challenge@fudo';
   static const String loginButtonCorrectPassword = 'password';
   static const String loginButtonSnackBarLoggedMessage = 'Logged in';

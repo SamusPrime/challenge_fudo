@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../../core/util/constants.dart';
 import '../../../model/post_impl.dart';
 
-
 final FirebaseFirestore _fireStore = FirebaseFirestore.instance;
 
 final CollectionReference _mainCollection = _fireStore.collection(
@@ -30,7 +29,6 @@ class DatabasePosts {
     required String mainCollectionDocument,
     required String subCollection,
   }) async {
-
     CollectionReference postsCollection =
         _mainCollection.doc(mainCollectionDocument).collection(subCollection);
     var response = await postsCollection.get();
@@ -41,7 +39,6 @@ class DatabasePosts {
     required String document,
     required String subCollection,
   }) async {
-
     List<PostImpl> postsList = [];
 
     try {
