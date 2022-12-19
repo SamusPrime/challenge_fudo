@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import '../../../../core/util/constants.dart';
 import '../../../model/user_impl.dart';
 
@@ -11,24 +10,18 @@ final CollectionReference _mainCollection = _fireStore.collection(
 class DatabaseUsers {
   Future<void> addUsers({
     required List<dynamic> users,
-    required String mainCollectionDocument,
-    required String subCollection,
   }) async {
-    WriteBatch batch = _fireStore.batch();
-    users.forEach((user) {
-      DocumentReference documentReferencer = _mainCollection
-          .doc(mainCollectionDocument)
-          .collection(subCollection)
-          .doc(
-            users[user].toString(),
-          );
-      batch.set(
-        documentReferencer,
-        user,
-        SetOptions(merge: true),
-      );
+    CollectionReference collectionReference = _fireStore.collection(
+      Strings.mainUsersFirebaseCollection,
+    );
+    var documents = await collectionReference.get();
+    documents.docs.forEach((doc) {
+      doc.reference.delete();
     });
-    batch.commit();
+
+    users.forEach((user) {
+      collectionReference.add(user);
+    });
   }
 
   Future<QuerySnapshot> readUsers({
@@ -46,6 +39,7 @@ class DatabaseUsers {
     required String subCollection,
   }) async {
     List<UserImpl> usersList = [];
+
     try {
       QuerySnapshot dbResponse = await readUsers(
         mainCollectionDocument: document,

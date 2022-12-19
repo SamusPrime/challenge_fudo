@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../core/util/constants.dart';
 
 class VisibilityText extends StatelessWidget {

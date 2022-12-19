@@ -10,7 +10,7 @@ class UserBlocImpl implements IUsersBloc {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+
   }
 
   @override
@@ -20,6 +20,6 @@ class UserBlocImpl implements IUsersBloc {
 
   @override
   void initialize() {
-    // TODO: implement initialize
+
   }
 }

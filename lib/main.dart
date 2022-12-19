@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'core/bootstrapper.dart';
@@ -11,7 +12,13 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const FudoChallenge());
+  FirebaseFirestore.instance.settings = const Settings(
+    persistenceEnabled: true,
+    cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
+  );
+  runApp(
+    const FudoChallenge(),
+  );
 }
 
 class FudoChallenge extends StatefulWidget {
@@ -32,7 +39,6 @@ class _FudoChallengeState extends State<FudoChallenge> {
 
   @override
   void dispose() {
-
     boot.dispose();
     super.dispose();
   }

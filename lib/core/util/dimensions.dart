@@ -12,6 +12,8 @@ abstract class Dimensions {
   static const double loginScreenSliverPaddingBottom = 50.0;
   static const double loginScreenTextFieldWidth = 200.0;
   static const double loginScreenTextFieldHeight = 60.0;
+  static const double postCreationScreenTextFieldBodyHeight = 200.0;
+  static const double postCreationScreenTextFieldBodyWidth = 400.0;
   static const double loginScreenTextFieldShadowBlurRadius = 8.0;
   static const double loginScreenTextFieldBorderWidth = 2.0;
   static const double loginScreenTextFieldBorderRadius = 1.0;
@@ -56,4 +58,11 @@ abstract class Dimensions {
   static const double usersScreenGridCrossAxisSpacing = 10.0;
   static const double usersScreenGridContainerBorderRadius = 10.0;
   static const double loginScreenFloatingActionButtonIconSize = 40.0;
+  static const double postCreationScreenBodyPadding = 50.0;
+  static const double postCreationScreenButtonPadding = 50.0;
+  static const int postCreationScreenTextFieldBodyMaxLinesDefault = 1;
+  static const int postCreationScreenTextFieldBodyMaxLines = 10;
+  static const int postBlocLastPostCreated = 0;
+
+  static const double customAppBarWidth = double.infinity;
 }

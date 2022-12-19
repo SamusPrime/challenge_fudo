@@ -33,13 +33,13 @@ class UsersRepository extends DatabaseUsers implements IUsersRepository {
           return usersList;
         } else {
           users.forEach((user) {
-            usersList.add(UserImpl.fromJson(user));
+            usersList.add(
+              UserImpl.fromJson(user),
+            );
           });
-          /*            _dbUsers.addUsers(
+          _dbUsers.addUsers(
             users: users,
-            mainCollectionDocument: document,
-            subCollection: subCollection,
-          ); */
+          );
           return usersList;
         }
       }

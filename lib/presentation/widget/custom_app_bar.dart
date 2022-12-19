@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../core/util/assets.dart';
-import '../../core/util/dimensions.dart';
+
+import '../../core/util/constants.dart';
 
 class CustomAppBar extends StatefulWidget {
   final String titleText;
@@ -19,14 +19,14 @@ class _CustomAppBarState extends State<CustomAppBar> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.deepOrange,
+        color: Palette.customAppBarBoxColor,
         border: const Border(
           bottom: BorderSide(
             width: Dimensions.customAppBarBorderWidth,
           ),
         ),
       ),
-      width: double.infinity,
+      width: Dimensions.customAppBarWidth,
       padding: const EdgeInsets.symmetric(
         vertical: Dimensions.customAppBarVerticalPadding,
         horizontal: Dimensions.customAppBarHorizontalPadding,
@@ -57,8 +57,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     widget.titleText,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize:
-                          Dimensions.customAppBarTitleTextFontSize,
+                      fontSize: Dimensions.customAppBarTitleTextFontSize,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
