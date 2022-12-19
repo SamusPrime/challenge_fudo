@@ -20,10 +20,6 @@ class UsersRepository extends DatabaseUsers implements IUsersRepository {
   Future<List<UserImpl>> fetchUsers(endpoint) async {
     List<UserImpl> usersList = [];
 
-    int startIndex = endpoint.lastIndexOf('/');
-    String document = endpoint.substring(startIndex + 1) + '_doc';
-    String subCollection = endpoint.substring(startIndex + 1);
-
     try {
       var apiResponse = await _service.apiCall(endpoint: endpoint);
       if (apiResponse.statusCode == HttpStatus.ok) {
@@ -43,15 +39,9 @@ class UsersRepository extends DatabaseUsers implements IUsersRepository {
           return usersList;
         }
       }
-      return getUsersFromDatabase(
-        document: document,
-        subCollection: subCollection,
-      );
+      return getUsersFromDatabase();
     } catch (e) {
-      return getUsersFromDatabase(
-        document: document,
-        subCollection: subCollection,
-      );
+      return getUsersFromDatabase();
     }
   }
 
