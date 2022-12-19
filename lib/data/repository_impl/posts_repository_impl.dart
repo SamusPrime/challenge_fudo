@@ -19,7 +19,6 @@ class PostsRepository extends DatabasePosts implements IPostsRepository {
   @override
   Future<List<PostImpl>> fetchPosts(endpoint) async {
     List<PostImpl> postsList = [];
-
     int startIndex = endpoint.lastIndexOf('/');
     String document = endpoint.substring(startIndex + 1) + '_doc';
     String subCollection = endpoint.substring(startIndex + 1);

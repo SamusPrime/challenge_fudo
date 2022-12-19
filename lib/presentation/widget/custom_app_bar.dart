@@ -18,9 +18,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Palette.customAppBarBoxColor,
-        border: const Border(
+        border: Border(
           bottom: BorderSide(
             width: Dimensions.customAppBarBorderWidth,
           ),
@@ -56,7 +56,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   child: Text(
                     widget.titleText,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: Dimensions.customAppBarTitleTextFontSize,
                       fontWeight: FontWeight.bold,
                     ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/util/dimensions.dart';
+import '../../core/util/constants.dart';
 
 class ToastBar extends StatelessWidget {
   final String detailMessage;

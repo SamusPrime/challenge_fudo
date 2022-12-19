@@ -34,7 +34,7 @@ class _UsersScreenState extends State<UsersScreen> {
             screenSize.width,
             Dimensions.customAppBarBarSizeHeight,
           ),
-          child: CustomAppBar(
+          child: const CustomAppBar(
             titleText: Strings.customAppBarUsersTitleText,
           ),
         ),
@@ -58,12 +58,10 @@ class _UsersScreenState extends State<UsersScreen> {
               ) {
                 switch (snapshot.connectionState) {
                   case ConnectionState.waiting:
-                    return const SizedBox(
-                      child: Center(
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            Palette.circularProgressIndicator,
-                          ),
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Palette.circularProgressIndicator,
                         ),
                       ),
                     );

@@ -26,12 +26,14 @@ class VisibilityText extends StatelessWidget {
           padding: const EdgeInsets.all(
             Dimensions.visibilityTextPadding,
           ),
-          child: Text(
-            objectAttribute,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: fontSize,
+          child: Center(
+            child: Text(
+              objectAttribute,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: fontSize,
+              ),
             ),
           ),
         ),

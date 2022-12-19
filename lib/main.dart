@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'core/bootstrapper.dart';
 import 'presentation/bloc/interfaces/i_posts_bloc.dart';
@@ -11,11 +12,21 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: Services.firebaseOptionsApiKey,
+      appId: Services.firebaseOptionsAppId,
+      messagingSenderId: Services.firebaseMessengerSenderId,
+      projectId: Services.firebaseOptionsProjectId,
+    ),
+  );
+
   FirebaseFirestore.instance.settings = const Settings(
     persistenceEnabled: true,
     cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
   );
+  FirebaseDatabase.instance.setPersistenceEnabled(true);
+
   runApp(
     const FudoChallenge(),
   );

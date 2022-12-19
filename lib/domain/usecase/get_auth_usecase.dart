@@ -10,6 +10,6 @@ class GetAuthUseCase implements UseCase<AuthImpl, String> {
 
   @override
   Future<AuthImpl> call({String? params}) async {
-    return await _authRepository.getStatusAuth(params);
+    return  _authRepository.getStatusAuth(params);
   }
 }

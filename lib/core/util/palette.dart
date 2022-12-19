@@ -19,4 +19,6 @@ abstract class Palette {
   static const Color postsScreenFloatingActionButtonBackground =
       Colors.greenAccent;
   static const Color customAppBarBoxColor = Colors.deepOrange;
+  static const Color loginScreenRegisterText = Colors.black;
+  static const Color postScreenNewPostTextShadow = Colors.black;
 }

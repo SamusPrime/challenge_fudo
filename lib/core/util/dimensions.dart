@@ -44,6 +44,7 @@ abstract class Dimensions {
   static const int navRouterCurrentIndexStart = 0;
   static const double customAppBarBorderWidth = 3.0;
   static const double listViewBorderWidth = 3.0;
+  static const double gridViewConstraintsMaxHeight =  300.0;
   static const double sliverListContainerBoxConstraintsMinHeight = 50.0;
   static const double responsiveDesktopWidth = 1200.0;
   static const double responsiveMobileWidth = 800.0;
@@ -63,6 +64,6 @@ abstract class Dimensions {
   static const int postCreationScreenTextFieldBodyMaxLinesDefault = 1;
   static const int postCreationScreenTextFieldBodyMaxLines = 10;
   static const int postBlocLastPostCreated = 0;
-
+  static const double postScreenNewPostFontSize = 16.0;
   static const double customAppBarWidth = double.infinity;
 }
