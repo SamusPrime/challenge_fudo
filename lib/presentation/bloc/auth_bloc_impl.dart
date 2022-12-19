@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import '../../core/util/constants.dart';
 
 import 'interfaces/i_auth_bloc.dart';

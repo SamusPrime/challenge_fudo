@@ -48,19 +48,16 @@ class _LoginScreenState extends State<LoginScreen> {
                             shadows: <Shadow>[
                               Shadow(
                                 offset: Offset(
-                                  Dimensions
-                                      .loginScreenTitleShadowOffset,
-                                  Dimensions
-                                      .loginScreenTitleShadowOffset,
+                                  Dimensions.loginScreenTitleShadowOffset,
+                                  Dimensions.loginScreenTitleShadowOffset,
                                 ),
-                                blurRadius: Dimensions
-                                    .loginScreenTitleShadowBlurRadius,
+                                blurRadius:
+                                    Dimensions.loginScreenTitleShadowBlurRadius,
                                 color: Palette.loginScreenTitleShadow,
                               ),
                             ],
                             fontWeight: FontWeight.w600,
-                            fontSize:
-                                Dimensions.loginScreenTitleFontSize,
+                            fontSize: Dimensions.loginScreenTitleFontSize,
                           ),
                         ),
                       ),
@@ -77,41 +74,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 top: Dimensions.loginScreenSliverPaddingDefault,
               ),
               sliver: SliverToBoxAdapter(
-                child: SizedBox(
-                  width: Dimensions.loginScreenTextFieldWidth,
-                  height: Dimensions.loginScreenTextFieldHeight,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Palette.loginScreenTextFieldBoxShadow,
-                          blurRadius: Dimensions
-                              .loginScreenTextFieldShadowBlurRadius,
-                        ),
-                      ],
-                      color: Palette.loginScreenTextFieldContainer,
-                      border: Border.all(
-                        width:
-                            Dimensions.loginScreenTextFieldBorderWidth,
-                      ),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(
-                          Dimensions.loginScreenTextFieldBorderRadius,
-                        ),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left:
-                            Dimensions.loginScreenTextFieldPaddingLeft,
-                      ),
-                      child: LoginTextField(
-                        hintText: Strings.loginScreenHintUser,
-                        obscureText: false,
-                        textController: userController,
-                      ),
-                    ),
-                  ),
+                child: CustomTextField(
+                  hintText: Strings.loginScreenHintUser,
+                  obscureText: false,
+                  textController: userController,
+                  boxHeight: Dimensions.loginScreenTextFieldHeight,
+                  boxWidth: Dimensions.loginScreenTextFieldWidth,
                 ),
               ),
             ),
@@ -122,41 +90,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 right: Dimensions.loginScreenSliverPaddingDefault,
               ),
               sliver: SliverToBoxAdapter(
-                child: SizedBox(
-                  width: Dimensions.loginScreenTextFieldWidth,
-                  height: Dimensions.loginScreenTextFieldHeight,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Palette.loginScreenTextFieldBoxShadow,
-                          blurRadius: Dimensions
-                              .loginScreenTextFieldShadowBlurRadius,
-                        ),
-                      ],
-                      color: Palette.loginScreenTextFieldContainer,
-                      border: Border.all(
-                        width:
-                            Dimensions.loginScreenTextFieldBorderWidth,
-                      ),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(
-                          Dimensions.loginScreenTextFieldBorderRadius,
-                        ),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left:
-                            Dimensions.loginScreenTextFieldPaddingLeft,
-                      ),
-                      child: LoginTextField(
-                        textController: passwordController,
-                        hintText: Strings.loginScreenHintPassword,
-                        obscureText: true,
-                      ),
-                    ),
-                  ),
+                child: CustomTextField(
+                  textController: passwordController,
+                  hintText: Strings.loginScreenHintPassword,
+                  obscureText: true,
+                  boxHeight: Dimensions.loginScreenTextFieldHeight,
+                  boxWidth: Dimensions.loginScreenTextFieldWidth,
                 ),
               ),
             ),

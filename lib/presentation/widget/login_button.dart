@@ -5,6 +5,7 @@ import '../../presentation/widget/widgets.dart';
 import '../../core/util/constants.dart';
 import '../bloc/auth_bloc_impl.dart';
 import '../bloc/interfaces/i_auth_bloc.dart';
+import 'button_custom_style.dart';
 
 class LoginButton extends StatefulWidget {
   final TextEditingController userInputController;
@@ -38,8 +39,7 @@ class _LoginButtonState extends State<LoginButton> {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: ToastBar(
-                  detailMessage:
-                      Strings.loginButtonSnackBarLoggedMessage,
+                  detailMessage: Strings.loginButtonSnackBarLoggedMessage,
                 ),
               ),
             );
@@ -54,8 +54,7 @@ class _LoginButtonState extends State<LoginButton> {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: ToastBar(
-                  detailMessage:
-                      Strings.loginButtonSnackBarIncorrectUserName,
+                  detailMessage: Strings.loginButtonSnackBarIncorrectUserName,
                 ),
               ),
             );
@@ -64,44 +63,15 @@ class _LoginButtonState extends State<LoginButton> {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: ToastBar(
-                  detailMessage:
-                      Strings.loginButtonSnackBarIncorrectPassword,
+                  detailMessage: Strings.loginButtonSnackBarIncorrectPassword,
                 ),
               ),
             );
             break;
         }
       },
-      child: SizedBox(
-        width: Dimensions.loginButtonSizedBoxWidth,
-        height: Dimensions.loginButtonSizedBoxHeight,
-        child: Container(
-          decoration: BoxDecoration(
-            boxShadow: const [
-              BoxShadow(
-                color: Palette.loginButtonBoxShadow,
-                blurRadius: Dimensions.loginButtonSizedBoxShadowBlur,
-              ),
-            ],
-            color: Palette.loginButtonContainer,
-            border: Border.all(
-              width: Dimensions.loginButtonSizedBoxBorderWidth,
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(
-                Dimensions.loginButtonSizedBoxBorderRadius,
-              ),
-            ),
-          ),
-          child: const Center(
-            child: Text(
-              Strings.loginButtonText,
-              style: TextStyle(
-                fontSize: Dimensions.loginButtonSizedBoxTextFontSize,
-              ),
-            ),
-          ),
-        ),
+      child: ButtonCustomStyle(
+        buttonText: Strings.loginButtonText,
       ),
     );
   }

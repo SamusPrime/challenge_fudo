@@ -4,7 +4,6 @@ import '../../../core/util/constants.dart';
 import '../../data/model/user_impl.dart';
 import '../bloc/interfaces/i_users_bloc.dart';
 import '../widget/grid_view_container.dart';
-import '../widget/visibility_text.dart';
 import '../widget/widgets.dart';
 
 class UsersScreen extends StatefulWidget {
@@ -15,19 +14,13 @@ class UsersScreen extends StatefulWidget {
 }
 
 class _UsersScreenState extends State<UsersScreen> {
-
-
-
-
   @override
   void initState() {
-
     super.initState();
   }
 
   @override
   void dispose() {
-
     super.dispose();
   }
 
@@ -42,7 +35,6 @@ class _UsersScreenState extends State<UsersScreen> {
             Dimensions.customAppBarBarSizeHeight,
           ),
           child: CustomAppBar(
-
             titleText: Strings.customAppBarUsersTitleText,
           ),
         ),
@@ -50,8 +42,7 @@ class _UsersScreenState extends State<UsersScreen> {
         body: SingleChildScrollView(
           child: Container(
             constraints: const BoxConstraints(
-              minHeight:
-                  Dimensions.sliverListContainerBoxConstraintsMinHeight,
+              minHeight: Dimensions.sliverListContainerBoxConstraintsMinHeight,
             ),
             child: FutureBuilder<List<UserImpl>>(
               future: Provider.of<IUsersBloc>(
@@ -88,10 +79,8 @@ class _UsersScreenState extends State<UsersScreen> {
                     return GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount:
-                            Dimensions.usersScreenCrossAxisCount,
-                        childAspectRatio:
-                            Dimensions.usersScreenGridAspectRatio,
+                        crossAxisCount: Dimensions.usersScreenCrossAxisCount,
+                        childAspectRatio: Dimensions.usersScreenGridAspectRatio,
                         mainAxisSpacing:
                             Dimensions.usersScreenGridMainAxisSpacing,
                         crossAxisSpacing:

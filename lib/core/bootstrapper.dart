@@ -8,6 +8,7 @@ import '../domain/repository/i_posts_repository.dart';
 import '../domain/repository/i_users_repository.dart';
 import '../domain/usecase/get_posts_usecase.dart';
 import '../domain/usecase/get_users_usecase.dart';
+import '../domain/usecase/create_post_usecase.dart';
 import '../presentation/bloc/auth_bloc_impl.dart';
 import '../presentation/bloc/interfaces/i_auth_bloc.dart';
 import '../presentation/bloc/interfaces/i_posts_bloc.dart';
@@ -28,6 +29,7 @@ class Bootstrapper {
   late IPostsRepository _postsRepository;
   late UseCase _getUsersUseCase;
   late UseCase _getPostsUseCase;
+  late UseCase _createPostUseCase;
 
   IAuthBloc get authBloc => _authBloc;
 
@@ -57,11 +59,13 @@ class Bootstrapper {
     );
     _getUsersUseCase = GetUsersUseCase(_usersRepository);
     _getPostsUseCase = GetPostsUseCase(_postsRepository);
+    _createPostUseCase = CreatePostUseCase(_postsRepository);
     _usersBloc = UserBlocImpl(
       _getUsersUseCase,
     );
     _postsBloc = PostBlocImpl(
       _getPostsUseCase,
+      _createPostUseCase,
     );
   }
 }

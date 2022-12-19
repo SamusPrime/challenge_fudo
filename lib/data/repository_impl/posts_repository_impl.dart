@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import '../../core/util/constants.dart';
 import '../../domain/repository/i_posts_repository.dart';
 import '../datasource/local/DAOs/database_posts.dart';
 import '../datasource/remote/api_service.dart';
@@ -33,13 +33,13 @@ class PostsRepository extends DatabasePosts implements IPostsRepository {
           return postsList;
         } else {
           posts.forEach((post) {
-            postsList.add(PostImpl.fromJson(post));
+            postsList.add(
+              PostImpl.fromJson(post),
+            );
           });
-          /*            _dbPosts.addPosts(
+          _dbPosts.addPosts(
             posts: posts,
-            mainCollectionDocument: document,
-            subCollection: subCollection,
-          ); */
+          );
           return postsList;
         }
       }
@@ -66,5 +66,23 @@ class PostsRepository extends DatabasePosts implements IPostsRepository {
       );
     });
     return postsList;
+  }
+
+  @override
+  Future<bool> sendPost(Map<String?, dynamic>? jsonBody) async {
+    try {
+      var apiResponsePost = await _service.apiPost(
+        json: jsonBody,
+        endpoint: Services.postsEndpoint,
+      );
+      if (apiResponsePost.statusCode == HttpStatus.ok ||
+          apiResponsePost.statusCode == HttpStatus.created) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
   }
 }
