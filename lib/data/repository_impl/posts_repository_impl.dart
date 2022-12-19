@@ -19,9 +19,6 @@ class PostsRepository extends DatabasePosts implements IPostsRepository {
   @override
   Future<List<PostImpl>> fetchPosts(endpoint) async {
     List<PostImpl> postsList = [];
-    int startIndex = endpoint.lastIndexOf('/');
-    String document = endpoint.substring(startIndex + 1) + '_doc';
-    String subCollection = endpoint.substring(startIndex + 1);
 
     try {
       var apiResponse = await _service.apiCall(endpoint: endpoint);
@@ -42,15 +39,9 @@ class PostsRepository extends DatabasePosts implements IPostsRepository {
           return postsList;
         }
       }
-      return getPostsFromDatabase(
-        document: document,
-        subCollection: subCollection,
-      );
+      return getPostsFromDatabase();
     } catch (e) {
-      return getPostsFromDatabase(
-        document: document,
-        subCollection: subCollection,
-      );
+      return getPostsFromDatabase();
     }
   }
 

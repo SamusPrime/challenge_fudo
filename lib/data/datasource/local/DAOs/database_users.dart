@@ -24,27 +24,17 @@ class DatabaseUsers {
     });
   }
 
-  Future<QuerySnapshot> readUsers({
-    required String mainCollectionDocument,
-    required String subCollection,
-  }) async {
-    CollectionReference usersCollection =
-        _mainCollection.doc(mainCollectionDocument).collection(subCollection);
+  Future<QuerySnapshot> readUsers() async {
+    CollectionReference usersCollection = _mainCollection;
     var response = await usersCollection.get();
     return response;
   }
 
-  Future<List<UserImpl>> getUsersFromDatabase({
-    required String document,
-    required String subCollection,
-  }) async {
+  Future<List<UserImpl>> getUsersFromDatabase() async {
     List<UserImpl> usersList = [];
 
     try {
-      QuerySnapshot dbResponse = await readUsers(
-        mainCollectionDocument: document,
-        subCollection: subCollection,
-      );
+      QuerySnapshot dbResponse = await readUsers();
       if (dbResponse.docs.isEmpty) {
         return usersList;
       } else {

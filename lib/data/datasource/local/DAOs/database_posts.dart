@@ -25,27 +25,17 @@ class DatabasePosts {
     });
   }
 
-  Future<QuerySnapshot> readPosts({
-    required String mainCollectionDocument,
-    required String subCollection,
-  }) async {
-    CollectionReference postsCollection =
-        _mainCollection.doc(mainCollectionDocument).collection(subCollection);
+  Future<QuerySnapshot> readPosts() async {
+    CollectionReference postsCollection = _mainCollection;
     var response = await postsCollection.get();
     return response;
   }
 
-  Future<List<PostImpl>> getPostsFromDatabase({
-    required String document,
-    required String subCollection,
-  }) async {
+  Future<List<PostImpl>> getPostsFromDatabase() async {
     List<PostImpl> postsList = [];
 
     try {
-      QuerySnapshot dbResponse = await readPosts(
-        mainCollectionDocument: document,
-        subCollection: subCollection,
-      );
+      QuerySnapshot dbResponse = await readPosts();
       if (dbResponse.docs.isEmpty) {
         return postsList;
       } else {
